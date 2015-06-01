@@ -41,7 +41,7 @@
                     $('body').append('<div id="'+ MM.ids[key] +'" style="'+ MM.inlineCss(MM.css[key]) +'"></div>');
 
                 });
-                $('#click-button').on('click', function(e){
+                $(parameters.selector).on('click', function(e){
 
                     MM.open(e);
                     return false;
