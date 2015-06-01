@@ -1,0 +1,24 @@
+{
+  "name": "jquery.minimal-modal",
+  "version": "0.0.1",
+  "authors": [
+    "sukohi <capilano.sukohi@gmail.com>"
+  ],
+  "description": "A jQuery package to manage modal very simply.",
+  "main": "jquery.minimal-modal.js",
+  "keywords": [
+    "jquery",
+    "modal"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.1"
+  }
+}
