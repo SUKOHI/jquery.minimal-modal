@@ -97,8 +97,8 @@
                 var windowHeight = $(window).height();
                 var outerWidth = $('#'+ MM.ids.content).outerWidth(false);
                 var outerHeight = $('#'+ MM.ids.content).outerHeight(false);
-                var top = Math.max(0, ((windowHeight - outerHeight) / 2) + $(window).scrollTop()) +'px';
-                var left = Math.max(0, ((windowWidth - outerWidth) / 2) + $(window).scrollLeft()) +'px';
+                var top = Math.max(0, ((windowHeight - outerHeight) / 2)) +'px';
+                var left = Math.max(0, ((windowWidth - outerWidth) / 2)) +'px';
 
                 $('#'+ MM.ids.content).css({
                     top: top,
