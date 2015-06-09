@@ -96,6 +96,7 @@ Usage
             $.get(url, {}, function(text){
 
                 minimalModal.setContent(text);
+                minimalModal.centerContent();
 
             });
 
