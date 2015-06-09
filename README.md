@@ -78,6 +78,29 @@ Usage
 
         }
     });
+    
+**Using Ajax**
+
+    $.minimalModal({
+        selector: '#click-button',
+        content: function(e){
+
+            return 'Loading..';
+
+        },
+        callback: function(e, minimalModal){
+
+            var url = 'http://example.com';
+            var data = {};
+            
+            $.get(url, {}, function(text){
+
+                minimalModal.setContent(text);
+
+            });
+
+        }
+    });
 
 License
 ====

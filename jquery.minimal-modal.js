@@ -70,7 +70,8 @@
 
                 }
 
-                $('#'+ MM.ids.content).html(content).fadeIn(fadeInSpeed);
+                MM.setContent(content);
+                $('#'+ MM.ids.content).fadeIn(fadeInSpeed);
                 $('#'+ MM.ids.overlay +', .'+ MM.ids.close).on('click', function(){
 
                     $(window).scrollTop(MM.originalScrollY);
@@ -86,9 +87,14 @@
 
                 if($.type(parameters['callback']) == 'function') {
 
-                    parameters['callback'](e);
+                    parameters['callback'](e, MM);
 
                 }
+
+            },
+            setContent: function(content){
+
+                $('#'+ MM.ids.content).html(content);
 
             },
             centerContent: function(){
