@@ -38,6 +38,16 @@
 
                 $.each(['overlay', 'content'], function(index, key){
 
+                    if(key == 'content'
+                            && parameters['background'] != undefined
+                            && !parameters['background']) {
+
+                        MM.css[key]['background'] = 'none';
+                        MM.css[key]['border'] = 'none';
+                        console.log(MM.css);
+
+                    }
+
                     $('body').append('<div id="'+ MM.ids[key] +'" style="'+ MM.inlineCss(MM.css[key]) +'"></div>');
 
                 });
@@ -51,13 +61,6 @@
             },
             open: function(e) {
 
-                MM.originalScrollX = $(window).scrollLeft();
-                MM.originalScrollY = $(window).scrollTop();
-
-                var fadeInSpeed = MM.fadeSpeed('fadeIn');
-                $('#'+ MM.ids.overlay).fadeIn(fadeInSpeed);
-                MM.centerContent();
-
                 var content = '';
 
                 if($.type(parameters['content']) == 'function') {
@@ -70,13 +73,24 @@
 
                 }
 
-                MM.setContent(content);
-                $('#'+ MM.ids.content).fadeIn(fadeInSpeed);
-                $(window).resize(MM.centerContent())
+                if(content != '') {
 
-                if($.type(parameters['callback']) == 'function') {
+                    MM.originalScrollX = $(window).scrollLeft();
+                    MM.originalScrollY = $(window).scrollTop();
 
-                    parameters['callback'](e, MM);
+                    var fadeInSpeed = MM.fadeSpeed('fadeIn');
+                    $('#'+ MM.ids.overlay).fadeIn(fadeInSpeed);
+                    MM.centerContent();
+
+                    MM.setContent(content);
+                    $('#'+ MM.ids.content).fadeIn(fadeInSpeed);
+                    $(window).resize(MM.centerContent());
+
+                    if($.type(parameters['callback']) == 'function') {
+
+                        parameters['callback'](e, MM);
+
+                    }
 
                 }
 
@@ -84,7 +98,16 @@
             setContent: function(content){
 
                 $('#'+ MM.ids.content).html(content);
-                $('#'+ MM.ids.overlay +', .'+ MM.ids.close).on('click', function(){
+
+                var closeSelectors = closeSelectors = ['.'+ MM.ids.close];
+
+                if(parameters['modalClickClose'] == undefined || parameters['modalClickClose']) {
+
+                    closeSelectors.push('#'+ MM.ids.overlay);
+
+                }
+
+                $(closeSelectors.join(',')).on('click', function(){
 
                     $(window).scrollTop(MM.originalScrollY);
                     $(window).scrollLeft(MM.originalScrollX);

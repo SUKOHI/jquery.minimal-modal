@@ -67,6 +67,8 @@ Usage
         fadeOut: 'slow',            // Optional(Default: slow)
         width: '80%',               // Optional(Default: 50%) *px is also available.
         maxHeight: '150px',         // Optional
+        background: true,           // Optional(Default: true)  Display background or not?
+        modalClickClose: true,      // Optional(Default: true)  Close when clicking modal?
         content: function(e){
 
             return 'Content <button class="minimal-modal-close">close</button>';
