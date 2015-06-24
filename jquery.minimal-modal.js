@@ -73,7 +73,7 @@
 
                 }
 
-                if(content != '') {
+                if(content != undefined && content != '') {
 
                     MM.originalScrollX = $(window).scrollLeft();
                     MM.originalScrollY = $(window).scrollTop();

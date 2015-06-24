@@ -72,6 +72,10 @@ Usage
         content: function(e){
 
             return 'Content <button class="minimal-modal-close">close</button>';
+            
+            // If you'd like to cancel, return empty value like the below.
+
+            return;
 
         }, 
         callback: function(e){      // Optional
