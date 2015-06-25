@@ -113,7 +113,11 @@
                     $(window).scrollLeft(MM.originalScrollX);
 
                     var fadeOutSpeed = MM.fadeSpeed('fadeOut');
-                    $('#'+ MM.ids.content +', #'+ MM.ids.overlay).fadeOut(fadeOutSpeed);
+                    $('#'+ MM.ids.content +', #'+ MM.ids.overlay).fadeOut(fadeOutSpeed, function(){
+
+                        $('#'+ MM.ids.content +', #'+ MM.ids.overlay).scrollTop(0).scrollLeft(0);
+
+                    });
                     return false;
 
                 });
