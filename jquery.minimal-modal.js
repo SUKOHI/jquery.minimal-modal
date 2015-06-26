@@ -107,7 +107,7 @@
 
                 }
 
-                $(closeSelectors.join(',')).on('click', function(){
+                $(closeSelectors.join(',')).off('click').on('click', function(){
 
                     $(window).scrollTop(MM.originalScrollY);
                     $(window).scrollLeft(MM.originalScrollX);
