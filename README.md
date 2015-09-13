@@ -7,7 +7,7 @@ A jQuery package to manage modal very simply.
 Requirements
 ====
 
-jQuery
+* [jQuery](https://jquery.com/)
 
 Installation
 =====
@@ -107,6 +107,17 @@ Usage
             });
 
         }
+    });
+
+**Open Manually**
+
+    $('#button').on('click', function(e){
+
+        $.minimalModal({
+            event: e,
+            content: '#other-content'
+        });
+
     });
 
 License

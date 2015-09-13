@@ -51,12 +51,22 @@
                     $('body').append('<div id="'+ MM.ids[key] +'" style="'+ MM.inlineCss(MM.css[key]) +'"></div>');
 
                 });
-                $(parameters.selector).off('click').on('click', function(e){
 
-                    MM.open(e);
+                if(parameters.selector != undefined && parameters.selector != '') {
+
+                    $(parameters.selector).off('click').on('click', function(e){
+
+                        MM.open(e);
+                        return false;
+
+                    });
+
+                } else if((parameters.selector == undefined || parameters.selector == '') && parameters.event.type != '') {
+
+                    MM.open(parameters.event);
                     return false;
 
-                });
+                }
 
             },
             open: function(e) {
